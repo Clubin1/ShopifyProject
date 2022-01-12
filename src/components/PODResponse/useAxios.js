@@ -2,7 +2,6 @@
 
 import { useState, useEffect } from 'react';
 import axios from 'axios';
-import {REACT_API_KEY} from '../../Keys/apikeys'
 
 axios.defaults.baseURL = `https://api.nasa.gov/planetary/apod?api_key=hhKrv9b7gw0mKT9aIVXdPWlDsaa9wUtEBlJ70IES`;
 
