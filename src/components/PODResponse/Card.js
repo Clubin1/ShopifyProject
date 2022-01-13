@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Box, Heading, Text, Button, ButtonGroup} from '@chakra-ui/react'
-
+import { FaRegThumbsUp } from 'react-icons/fa'
 const Card = ({ title, date, explanation, url}) => {
    return (
         <Box>
@@ -12,6 +12,7 @@ const Card = ({ title, date, explanation, url}) => {
             <Button mt={4} colorScheme='purple' variant='link'>
                 Like
             </Button>
+            <FaRegThumbsUp/>
         </Box>
    )
 };

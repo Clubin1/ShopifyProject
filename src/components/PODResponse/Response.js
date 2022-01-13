@@ -1,9 +1,11 @@
 import {React, useState, useEffect} from 'react'
 import useAxios from './useAxios'
 import Card from './Card'
-import {Container, Box} from '@chakra-ui/react'
+import {Container, Box, Center} from '@chakra-ui/react'
+import {Oval} from 'react-loader-spinner'
 
 const Response = () => {
+    const [data, setData] = useState([]);
     const {response, loading, error} = useAxios({
         method: 'get',
         url: '',
@@ -22,7 +24,6 @@ const Response = () => {
             }
         )
     });
-    const [data, setData] = useState([]);
 
     useEffect(() => {
         if (response !== null) {
@@ -33,9 +34,23 @@ const Response = () => {
     }, [response]);
 
     return (
-        <Box padding='4' bg='gray.100' maxW='xl'>
-            <Card title={data.title} date={data.date} explanation={data.explanation} url={data.url}/>
-        </Box>
+        <div>
+            <Box padding='4' bg='gray.100' maxW='xl'>
+                {loading ? (
+                    <Center>
+                        <Oval height="50px" width="50px" textAlignarialLabel="loading-indicator" color="purple"/>
+                    </Center>
+                        ) : (
+                        <>
+                            {error && (
+                                <p>{error.message}</p>
+                            )}
+                            <Card title={data.title} date={data.date} explanation={data.explanation} url={data.url}/>
+                        </>
+                    )}
+            </Box>
+        </div>
+  
     );
 };
 

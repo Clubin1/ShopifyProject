@@ -16,9 +16,12 @@ const customTheme = extendTheme({
       100: '#ff3d3d',
       200: '#f77070'
     },
+    white: {
+      100: '#ffffff'
+    }
   },
   fonts: {
- 
+  
   },
   fontWeights: {
     hairline: 100,
