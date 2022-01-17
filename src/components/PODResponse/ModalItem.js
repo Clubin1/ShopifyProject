@@ -15,7 +15,7 @@ const ModalItem = ({ title, body }) => {
     const { isOpen, onOpen, onClose } = useDisclosure()
     return (
        <>
-        <Button onClick={onOpen}>Open Modal</Button>
+        <a variant="solid" onClick={onOpen}>Read More</a>
         <Modal isOpen={isOpen} onClose={onClose}>
         <ModalOverlay />
         <ModalContent>
@@ -28,10 +28,10 @@ const ModalItem = ({ title, body }) => {
             </ModalBody>
 
             <ModalFooter>
-            <Button colorScheme='blue' mr={3} onClick={onClose}>
+            <Button colorScheme='purple' mr={3} onClick={onClose}>
                 Close
             </Button>
-            <Button variant='ghost'>Secondary Action</Button>
+            <Button variant='ghost'>Like Post</Button>
             </ModalFooter>
         </ModalContent>
         </Modal>

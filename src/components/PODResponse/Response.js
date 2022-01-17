@@ -34,23 +34,18 @@ const Response = () => {
     }, [response]);
 
     return (
-        <div>
-            <Box padding='4' bg='gray.100' maxW='xl'>
-                {loading ? (
-                    <Center>
-                        <Oval height="50px" width="50px" textAlignarialLabel="loading-indicator" color="purple"/>
-                    </Center>
-                        ) : (
-                        <>
-                            {error && (
-                                <p>{error.message}</p>
-                            )}
-                            <Card title={data.title} date={data.date} explanation={data.explanation} url={data.url}/>
-                        </>
-                    )}
-            </Box>
-        </div>
-  
+        <Box p={4} bg='gray.100' maxW='xl'>
+            {loading ? (
+                <Center>
+                    <Oval height="50px" width="50px" textAlignarialLabel="loading-indicator" color="purple"/>
+                </Center>
+                    ) : (
+                    <>
+                        {error && (<p>{error.message}</p>)}
+                        <Card title={data.title} date={data.date} explanation={data.explanation} url={data.url}/>
+                    </>
+                )}
+        </Box>  
     );
 };
 

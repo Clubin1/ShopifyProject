@@ -1,37 +1,52 @@
-import { FaRegThumbsUp, FaRegThumbsDown } from 'react-icons/fa'
-import ModalItem from './ModalItem'
+import { React, useState, useEffect, useRef } from 'react';
+import { FaRegThumbsUp, FaRegThumbsDown } from 'react-icons/fa';
+import { BsHeart } from 'react-icons/bs';
+import ModalItem from './ModalItem';
+import Heart from "react-animated-heart";
+
 import {
     Box, 
     Heading, 
     Text, 
+    HStack,
+    VStack,
     Button,
     IconButton
-} from '@chakra-ui/react'
+} from '@chakra-ui/react';
+
 
 const Card = ({ title, date, explanation, url}) => {
-    let splicedExplanation = `${explanation.split(' ').slice(0, 15).join(' ')}...`;
+    let localNum = parseInt(localStorage.getItem('postLikes'));
+    let [likeNum, setLikes] = useState(localNum ? localNum : 10);
+    const [isClick, setClick] = useState(false);
 
+    const likePost = () => {
+        if (isClick === false) {
+            setLikes(likeNum += 1);
+            setClick(!isClick)
+            localStorage.setItem('postLikes', likeNum);
+        } else {
+            setLikes(likeNum -= 1);
+            setClick(!isClick)
+            localStorage.setItem('postLikes', likeNum);
+        }
+    }
+    let splicedExplanation = `${explanation.split(' ').slice(0, 30).join(' ')}...`;
     return (
-        <Box>
-            <Heading>{title}</Heading>
-            <Text mt={2} mb={2}>{date}</Text>
-            <img src={url}/>
-            <Text mt={4}> {splicedExplanation} </Text>
-            <IconButton
-            variant='outline'
-            colorScheme='purple'
-            aria-label='Send email'
-            icon={<FaRegThumbsUp />}
-            />    
-            <IconButton
-            variant='outline'
-            colorScheme='purple'
-            aria-label='Send email'
-            icon={<FaRegThumbsDown/>}
-            />
-            <ModalItem title={title} body={explanation}/>
+        <Box pt={7} pb={7}>
+            <VStack spacing={4} align='left'>
+               <Heading>{title}</Heading>
+                <Text>{date}</Text>
+                <img src={url}/>
+                <Heart isClick={isClick} onClick={() => likePost()} />
+                <Text>{likeNum} likes</Text>
+                <Text> {splicedExplanation} </Text>
+                <HStack>
+                    <ModalItem title={title} body={explanation}/>
+                </HStack>
+            </VStack>
         </Box>
-   )
+   );
 };
 
 export default Card;
