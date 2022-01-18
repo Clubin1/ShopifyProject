@@ -17,7 +17,7 @@ const ModalItem = ({ title, body, url }) => {
     const { isOpen, onOpen, onClose } = useDisclosure()
     return (
        <>
-        <a variant="solid" onClick={onOpen}>Read More</a>
+        <Text variant="solid" onClick={onOpen}>Read More</Text>
         <Modal isOpen={isOpen} onClose={onClose}>
         <ModalOverlay />
         <ModalContent>

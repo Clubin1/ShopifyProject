@@ -1,7 +1,7 @@
 import {React, useState, useEffect} from 'react'
 import useAxios from './useAxios'
 import Card from './Card'
-import {Container, Box, Center} from '@chakra-ui/react'
+import { Box, Center} from '@chakra-ui/react'
 import {Oval} from 'react-loader-spinner'
 
 const Response = () => {

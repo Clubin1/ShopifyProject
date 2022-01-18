@@ -1,4 +1,4 @@
-import { React, useState, useEffect, useRef } from 'react';
+import { React, useState } from 'react';
 
 import { Button, Container} from '@chakra-ui/react';
 
