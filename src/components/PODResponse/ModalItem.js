@@ -11,7 +11,9 @@ import {
     Text
 } from '@chakra-ui/react'
 
-const ModalItem = ({ title, body }) => {
+import ClipboardCopy from './ClipboardCopy';
+
+const ModalItem = ({ title, body, url }) => {
     const { isOpen, onOpen, onClose } = useDisclosure()
     return (
        <>
@@ -31,7 +33,7 @@ const ModalItem = ({ title, body }) => {
             <Button colorScheme='purple' mr={3} onClick={onClose}>
                 Close
             </Button>
-            <Button variant='ghost'>Like Post</Button>
+            <ClipboardCopy copyText={url} />
             </ModalFooter>
         </ModalContent>
         </Modal>

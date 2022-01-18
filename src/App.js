@@ -1,7 +1,5 @@
 import * as React from 'react'
-import { Routes, Route, Link } from 'react-router-dom' 
-import HomePage from './views/Home/HomePage'
-import FeedPage from './views/Feed/FeedPage'
+import { Routes, Route } from 'react-router-dom' 
 import PODPage from './views/Feed/PODPage'
 import Navbar from './components/Layout/Navbar'
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
@@ -11,9 +9,7 @@ const App = () => {
     <div className="App">
       <Navbar/>
       <Routes>
-        <Route path="/" element={<HomePage/>}/>
-        <Route path="/feed" element={<FeedPage/>}/>
-        <Route path='feed/apod' element={<PODPage/>}/>
+        <Route path="/" element={<PODPage/>}/>
       </Routes>
     </div>
   );

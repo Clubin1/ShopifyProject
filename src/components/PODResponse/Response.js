@@ -30,7 +30,8 @@ const Response = () => {
             setData({
                 ...response
             });
-        }
+        };
+        console.log(data)
     }, [response]);
 
     return (
